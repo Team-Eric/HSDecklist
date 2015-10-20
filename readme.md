@@ -4,7 +4,8 @@ Install php
 
 Install composer https://getcomposer.org/
 
-```php
+```
+cp .env.example .env
 composer install
 php artisan serve
 ```
