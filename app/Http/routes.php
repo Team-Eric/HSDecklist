@@ -1,5 +1,7 @@
 <?php
 
+use League\CommonMark\CommonMarkConverter;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -19,4 +21,10 @@ Route::get('/', function () {
 //Jeffrey Li
 Route::get('/time', function() {
 	return \Carbon\Carbon::now();
+});
+
+//Eric Liu - Assignment 5
+Route::get('/EricLiu', function() {
+	$converter = new CommonMarkConverter();
+    return $converter->convertToHtml('# Eric Liu was here.');
 });

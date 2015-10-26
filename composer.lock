@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "46d5fdcae85f283c2603bf17970a3995",
-    "content-hash": "c01c63441c0799012adc8b65e1f66621",
+    "hash": "9a6ae6c3cc3ec6cf59a82a238ff74b76",
+    "content-hash": "b8e77f3e502a6e3f8fd364d5a36a18e9",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -661,6 +661,72 @@
                 "laravel"
             ],
             "time": "2015-10-14 15:49:40"
+        },
+        {
+            "name": "league/commonmark",
+            "version": "0.11.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/commonmark.git",
+                "reference": "d22d6a6a4b049faccc2f8e491cce6076eeb165c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/d22d6a6a4b049faccc2f8e491cce6076eeb165c7",
+                "reference": "d22d6a6a4b049faccc2f8e491cce6076eeb165c7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.4.8"
+            },
+            "replace": {
+                "colinodell/commonmark-php": "*"
+            },
+            "require-dev": {
+                "erusev/parsedown": "~1.0",
+                "jgm/commonmark": "0.22",
+                "jgm/smartpunct": "0.22",
+                "michelf/php-markdown": "~1.4",
+                "mikehaertl/php-shellcommand": "~1.1.0",
+                "phpunit/phpunit": "~4.3",
+                "phpunit/phpunit-mock-objects": "2.3.0",
+                "symfony/finder": "~2.3"
+            },
+            "bin": [
+                "bin/commonmark"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.12-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\CommonMark\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Colin O'Dell",
+                    "email": "colinodell@gmail.com",
+                    "homepage": "http://www.colinodell.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Markdown parser for PHP based on the CommonMark spec",
+            "homepage": "https://github.com/thephpleague/commonmark",
+            "keywords": [
+                "commonmark",
+                "markdown",
+                "parser"
+            ],
+            "time": "2015-09-25 12:40:32"
         },
         {
             "name": "league/flysystem",
