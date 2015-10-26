@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//For assignment 5
+//Jeffrey Li
+Route::get('/time', function() {
+	return \Carbon\Carbon::now();
+});
