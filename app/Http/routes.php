@@ -30,11 +30,7 @@ Route::get('/EricLiu', function() {
     return $converter->convertToHtml('# Eric Liu was here.');
 });
 
-// Eric Cao - Assignment 5
-Route::get('/allCards', function() {
-    return Cards::all();
-});
-
+//Eric Cao - Assignment 5
 Route::get('/patchinfo', function() {
     $parameters = [
         'locale' => "enUS"
