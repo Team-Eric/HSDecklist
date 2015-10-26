@@ -23,8 +23,15 @@ Route::get('/time', function() {
 	return \Carbon\Carbon::now();
 });
 
+<<<<<<< HEAD
 //Eric Liu - Assignment 5
 Route::get('/EricLiu', function() {
 	$converter = new CommonMarkConverter();
     return $converter->convertToHtml('# Eric Liu was here.');
 });
+=======
+// Eric Cao - Assignment 5
+Route::get('/allCards', function() {
+    return Cards::all();
+});
+>>>>>>> origin/master
