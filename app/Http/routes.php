@@ -22,6 +22,9 @@ Route::get('/time', function() {
 });
 
 // Eric Cao - Assignment 5
-Route::get('/allCards', function() {
-    return Cards::all();
+Route::get('/patchinfo', function() {
+    $parameters = [
+        'locale' => "enUS"
+    ];
+    return Cards::info($parameters);
 });
