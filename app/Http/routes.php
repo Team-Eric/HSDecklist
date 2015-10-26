@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::get('/time', function() {
 	return \Carbon\Carbon::now();
 });
+
+// Eric Cao - Assignment 5
+Rout::get('/patchinfo', function() {
+    return Cards::all();
+});
