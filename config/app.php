@@ -145,6 +145,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Other
+         */
+        Rtransat\Hearthstone\Providers\ApiServiceProvider::class,
+
     ],
 
     /*
@@ -193,6 +198,11 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
+        /*
+         * Other
+         */
+        'Cards' => Rtransat\Hearthstone\Facades\Api::class,
 
     ],
 
