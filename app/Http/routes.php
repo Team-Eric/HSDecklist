@@ -22,6 +22,6 @@ Route::get('/time', function() {
 });
 
 // Eric Cao - Assignment 5
-Rout::get('/allCards', function() {
+Route::get('/allCards', function() {
     return Cards::all();
 });
