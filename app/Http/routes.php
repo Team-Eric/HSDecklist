@@ -38,3 +38,8 @@ Route::get('/patchinfo', function() {
     return Cards::info($parameters);
 });
 
+//Ray Lee - A5
+Route::get('/getcard', function() {
+	$name = $_GET["name"];
+	return Cards::get($name);
+});
