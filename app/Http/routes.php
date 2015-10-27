@@ -43,3 +43,13 @@ Route::get('/getcard', function() {
 	$name = $_GET["name"];
 	return Cards::get($name);
 });
+
+//Ray Lee - A5
+Route::get('/getrandom', function() {
+	$faker = Faker\Factory::create();
+	echo $faker->name;
+	echo nl2br("\n");
+	echo $faker->address;
+	echo nl2br("\n");
+	echo $faker->text;
+});
