@@ -16,4 +16,15 @@ class ExampleTest extends TestCase
         $this->visit('/')
              ->see('Laravel 5');
     }
+
+    public function testCardAPI()
+    {
+        $card = \Cards::get("Ysera");
+
+        //1 Result back, 1 card
+        $this->assertEquals(1, count($card));
+
+        $this->assertEquals("Ysera", $card[0]["name"]);
+        $this->assertEquals("EX1_572", $card[0]["cardId"]);
+    }
 }
