@@ -12,3 +12,15 @@ var dustCost = function(rarity) {
             break;
     }
 };
+
+var numCards = function(cType)
+{
+	switch(cType)
+	{
+		case "Legendary":
+			return '*';
+		default:
+			return '2';
+			break;
+	}
+}

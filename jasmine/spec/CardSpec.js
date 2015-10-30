@@ -20,3 +20,26 @@ describe('Card', function() {
         })
     });
 });
+
+describe('Card', function() {
+    describe('* or 2 for numCards', function() {
+        var cardType;
+
+        it('returns * if the card is Legendary', function() {
+            cardType = numCards('Legendary');
+            expect(cardType).toEqual('*');
+        });
+		it('returns 2 if the card is common, rare, or epic', function() {
+            cardType = numCards('Common');
+            expect(cardType).toEqual('2');
+        });
+		it('returns 2 if the card is common, rare, or epic', function() {
+            cardType = numCards('Rare');
+            expect(cardType).toEqual('2');
+        });
+		it('returns 2 if the card is common, rare, or epic', function() {
+            cardType = numCards('Epic');
+            expect(cardType).toEqual('2');
+        });
+    });
+});
