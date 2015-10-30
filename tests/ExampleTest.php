@@ -27,4 +27,17 @@ class ExampleTest extends TestCase
         $this->assertEquals("Ysera", $card[0]["name"]);
         $this->assertEquals("EX1_572", $card[0]["cardId"]);
     }
+
+    //Eric Liu -- Assignment 6
+    public function testGetCardByAttack()
+    {
+        $type = "Minion";
+        $parameters = [
+            'attack' => 11,
+            'health' => 11
+        ];
+        $card = \Cards::type($type, $parameters);
+        $this->assertEquals(1, count($card));
+        $this->assertEquals("Thaddius", $card[0]["name"]);
+    }
 }
