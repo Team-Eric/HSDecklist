@@ -5,7 +5,7 @@
 var scotchApp = angular.module('scotchApp', ['ngRoute']);
 
 // configure our routes
-scotchApp.config(function($routeProvider) {
+scotchApp.config(['$routeProvider', function($routeProvider) {
                  $routeProvider
                  
                  // route for the home page
@@ -25,18 +25,18 @@ scotchApp.config(function($routeProvider) {
                        templateUrl : 'pages/contact.html',
                        controller  : 'contactController'
                        });
-                 });
+                 }]);
 
 // create the controller and inject Angular's $scope
-scotchApp.controller('mainController', function($scope) {
+scotchApp.controller('mainController', ['$scope', function($scope) {
                      // create a message to display in our view
                      $scope.message = 'Everyone come and see how good I look!';
-                     });
+                     }]);
 
-scotchApp.controller('aboutController', function($scope) {
-                     $scope.message = 'Look! I am an about page.';
-                     });
+scotchApp.controller('aboutController', ['$scope', function($scope) {
+                     $scope.message = 'Deck List';
+                     }]);
 
-scotchApp.controller('contactController', function($scope) {
+scotchApp.controller('contactController', ['$scope', function($scope) {
                      $scope.message = 'Contact us! JK. This is just a demo.';
-                     });
+                     }]);

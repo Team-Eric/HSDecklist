@@ -3,6 +3,14 @@
 <!-- define angular app -->
 <html ng-app="scotchApp">
     <head>
+        <!-- JASMINE -->
+        <link rel="shortcut icon" type="image/png" href="../jasmine/lib/jasmine-2.3.4/jasmine_favicon.png">
+        <link rel="stylesheet" type="text/css" href="../jasmine/lib/jasmine-2.3.4/jasmine.css">
+
+        <script type="text/javascript" src="../jasmine/lib/jasmine-2.3.4/jasmine.js"></script>
+        <script type="text/javascript" src="../jasmine/lib/jasmine-2.3.4/jasmine-html.js"></script>
+        <script type="text/javascript" src="../jasmine/lib/jasmine-2.3.4/boot.js"></script>
+
         <!-- SCROLLS -->
         <!-- load bootstrap and fontawesome via CDN -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
@@ -10,8 +18,9 @@
         
         <!-- SPELLS -->
         <!-- load angular and angular route via CDN -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-mocks.js"></script>
         <script src="script.js"></script>
     </head>
     <body ng-controller="mainController">
@@ -36,7 +45,7 @@
         <!-- MAIN CONTENT AND INJECTED VIEWS -->
         <div id="main">
             {{ message }}
-              <div ng-view></div>
+            <div ng-view></div>
             <!-- angular templating -->
             <!-- this is where content will be injected -->
             
