@@ -15,9 +15,9 @@ scotchApp.config(['$routeProvider', function($routeProvider) {
                        })
                  
                  // route for the about page
-                 .when('/about', {
-                       templateUrl : 'pages/about.html',
-                       controller  : 'aboutController'
+                 .when('/deck', {
+                       templateUrl : 'pages/deck.html',
+                       controller  : 'deckController'
                        })
                  
                  // route for the contact page
@@ -33,7 +33,7 @@ scotchApp.controller('mainController', ['$scope', function($scope) {
                      $scope.message = 'Everyone come and see how good I look!';
                      }]);
 
-scotchApp.controller('aboutController', ['$scope', function($scope) {
+scotchApp.controller('deckController', ['$scope', function($scope) {
                      $scope.message = 'Deck List';
                      }]);
 
