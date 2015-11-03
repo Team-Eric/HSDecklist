@@ -1,0 +1,17 @@
+.player-classes {
+    margin: auto;
+    width: 50%;
+}
+
+.class-header {
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    float: left;
+    width: 300px;
+    height: 50px;
+    border-style: solid;
+    border-width: 2px;
+    margin: 10px;
+}
