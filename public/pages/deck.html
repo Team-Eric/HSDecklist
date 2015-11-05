@@ -5,13 +5,24 @@
     <p>{{ message }}</p>
 </div>
 
-<div id="decklist">
-    <div id="deck-header">
-        <h3>Secret Paladin</h3>
-    </div>
-    <div ng-repeat="i in [1,2,3,4,5]">
-        <div class="card">
-            {{i}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 decklist">
+            <div id="deck-header">Deck Name</div>
+            <div ng-repeat="i in [1,2,3,4,5]">
+                <div class="card">
+                    <div class="card-cost">{{i}}</div>
+                    <div class="card-name">Card Name</div>
+                    <div class="card-count">2</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <!-- CONTENT GOES HERE -->
+            <div class="content">
+            Hello
+            </div>
         </div>
     </div>
 </div>
+

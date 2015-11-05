@@ -48,15 +48,8 @@
     background-color: rgb(198, 155, 109);
 }
 
-#decklist {
-    display: block;
-    float: left;
-    margin-left: 400px;
-    width: 300px;
-    text-align: center;
-}
-
 #deck-header {
+    text-align: center;
     height: 50px;
     line-height: 50px;
     border-style: solid;
@@ -66,6 +59,33 @@
 .card {
     height: 30px;
     line-height: 30px;
-    border-style: solid;
-    border-width: 1px;
+    border: solid 1px;
+}
+
+.card-cost {
+    display: block;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: solid 1px;
+}
+
+.card-name {
+    display: inline-block;
+    text-align: left;
+    width: auto;
+    padding-left: 10px;
+}
+
+.card-count {
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: solid 1px;
+    float: right;
+}
+
+.content {
+    height: 500px;
+    border: solid 1px;
 }
