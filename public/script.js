@@ -34,7 +34,7 @@ scotchApp.controller('mainController', ['$scope', function($scope) {
                      }]);
 
 scotchApp.controller('deckController', ['$scope', function($scope) {
-                     $scope.message = 'Deck List';
+                     $scope.message = 'Welcoem to deck builder. Customize and perfect your hearthstone deck!';
                      }]);
 
 scotchApp.controller('contactController', ['$scope', function($scope) {
