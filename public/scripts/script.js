@@ -32,6 +32,7 @@ wellMetApp.controller('mainController', ['$scope', function($scope) {
                      $scope.classList = ['Druid', 'Hunter', 'Mage',
                                          'Paladin', 'Priest', 'Rogue',
                                          'Shaman', 'Warlock', 'Warrior']
+                 
                      }]);
 
 wellMetApp.controller('deckController', ['$scope', function($scope) {
@@ -39,5 +40,5 @@ wellMetApp.controller('deckController', ['$scope', function($scope) {
                      }]);
 
 wellMetApp.controller('contactController', ['$scope', function($scope) {
-                     $scope.message = 'Contact us! JK. This is just a demo.';
+                     $scope.message = 'Contact us! We love to hear your complaints. Jk.';
                      }]);
