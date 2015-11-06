@@ -9,7 +9,9 @@
     <div class="row">
         <div ng-repeat="class in classList">
             <div class="col-md-4">
-                <p class="class-header" id="{{class | lowercase}}-header"><a href="" uib-tooltip="{{class}}">{{class}}</a></p>
+                <p class="class-header" id="{{class | lowercase}}-header">
+                    <a href="" uib-tooltip="{{class}}">{{class}}</a>
+                </p>
             </div>
         </div>
     </div>

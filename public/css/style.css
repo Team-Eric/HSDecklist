@@ -1,3 +1,4 @@
+/* ----------- STYLE FOR HOME.HTML ----------- */
 #player-classes {
     margin: auto;
     width: 50%;
@@ -47,6 +48,8 @@
 #warrior-header {
     background-color: rgb(198, 155, 109);
 }
+
+/* ----------- STYLE FOR DECK.HTML ----------- */
 
 #deck-header {
     text-align: center;
