@@ -56,6 +56,10 @@
     border-width: 1px;
 }
 
+.class-header a {
+    color: inherit;
+}
+
 .card {
     height: 30px;
     line-height: 30px;

@@ -7,38 +7,10 @@
 
 <div id="player-classes" class="container">
     <div class="row">
-        <div class="col-md-4">
-            <p class="class-header" id="druid-header">Druid</p>
-        </div>
-        <div class="col-md-4">
-            <p class="class-header" id="hunter-header">Hunter</p>
-        </div>
-        <div class="col-md-4">
-            <p class="class-header" id="mage-header">Mage</p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <p class="class-header" id="paladin-header">Paladin</p>
-        </div>
-        <div class="col-md-4">
-            <p class="class-header" id="pirest-header">Priest</p>
-        </div>
-        <div class="col-md-4">
-            <p class="class-header" id="rogue-header">Rogue</p>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-4">
-            <p class="class-header" id="shaman-header">Shaman</p>
-        </div>
-        <div class="col-md-4">
-            <p class="class-header" id="warlock-header">Warlock</p>
-        </div>
-        <div class="col-md-4">
-            <p class="class-header" id="warrior-header">Warrior</p>
+        <div ng-repeat="class in classList">
+            <div class="col-md-4">
+                <p class="class-header" id="{{class | lowercase}}-header"><a href="" uib-tooltip="{{class}}">{{class}}</a></p>
+            </div>
         </div>
     </div>
 </div>

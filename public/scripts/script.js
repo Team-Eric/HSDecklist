@@ -1,42 +1,43 @@
 // script.js
 
-// create the module and name it scotchApp
-// also include ngRoute for all our routing needs
-var scotchApp = angular.module('scotchApp', ['ngRoute']);
+var wellMetApp = angular.module('wellMetApp', ['ngRoute', 'ui.bootstrap']);
 
 // configure our routes
-scotchApp.config(['$routeProvider', function($routeProvider) {
+wellMetApp.config(['$routeProvider', function($routeProvider) {
                  $routeProvider
                  
                  // route for the home page
                  .when('/', {
-                       templateUrl : 'pages/home.html',
+                       templateUrl : '../pages/home.html',
                        controller  : 'mainController'
                        })
                  
                  // route for the about page
                  .when('/deck', {
-                       templateUrl : 'pages/deck.html',
+                       templateUrl : '../pages/deck.html',
                        controller  : 'deckController'
                        })
                  
                  // route for the contact page
                  .when('/contact', {
-                       templateUrl : 'pages/contact.html',
+                       templateUrl : '../pages/contact.html',
                        controller  : 'contactController'
                        });
                  }]);
 
 // create the controller and inject Angular's $scope
-scotchApp.controller('mainController', ['$scope', function($scope) {
+wellMetApp.controller('mainController', ['$scope', function($scope) {
                      // create a message to display in our view
                      $scope.message = 'Everyone come and see how good I look!';
+                     $scope.classList = ['Druid', 'Hunter', 'Mage',
+                                         'Paladin', 'Priest', 'Rogue',
+                                         'Shaman', 'Warlock', 'Warrior']
                      }]);
 
-scotchApp.controller('deckController', ['$scope', function($scope) {
-                     $scope.message = 'Welcoem to deck builder. Customize and perfect your hearthstone deck!';
+wellMetApp.controller('deckController', ['$scope', function($scope) {
+                     $scope.message = 'Deck list';
                      }]);
 
-scotchApp.controller('contactController', ['$scope', function($scope) {
+wellMetApp.controller('contactController', ['$scope', function($scope) {
                      $scope.message = 'Contact us! JK. This is just a demo.';
                      }]);
