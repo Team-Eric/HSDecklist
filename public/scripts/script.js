@@ -32,6 +32,13 @@ wellMetApp.controller('mainController', ['$scope', function($scope) {
                      $scope.classList = ['Druid', 'Hunter', 'Mage',
                                          'Paladin', 'Priest', 'Rogue',
                                          'Shaman', 'Warlock', 'Warrior']
+                     $scope.deckListOne = ['Aggro Druid', 'Face Hunter', 'Freeze Mage',
+                                           'Secret Paladin', 'Dragon Priest', 'Oil Rogue',
+                                           'Bloodlust Shaman', 'Demon Handlock', 'Control Warrior']
+                     $scope.deckListTwo = ['Mid-Range Druid', 'Hybrid Hunter', 'Tempo Mage',
+                                           'Mid-Range Paladin', 'Control Priest', '',
+                                           'Mid-Range Shaman', 'Zoolock', 'Patron Warrior']
+                    
                  
                      }]);
 
