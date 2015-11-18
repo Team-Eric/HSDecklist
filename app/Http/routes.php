@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/api/card/{card}', function($cardID) {
+    return Card::first($cardID);
+});
+
+Route::get('/api/deck/{deck}', function($deck) {
+    return Deck::first($deck);
+});
+
 //For assignment 5
 //Jeffrey Li
 Route::get('/time', function() {
