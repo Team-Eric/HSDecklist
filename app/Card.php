@@ -18,6 +18,8 @@ class Card extends Model {
      */
     protected $table = 'cards';
 
+    protected $primaryKey = "cardId";
+
     protected static $unguarded = true;
 
 
