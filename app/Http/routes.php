@@ -18,11 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get('/api/card/{card}', function($cardID) {
-    return Card::first($cardID);
+    return \App\Card::first($cardID);
 });
 
 Route::get('/api/deck/{deck}', function($deck) {
-    return Deck::first($deck);
+    return \App\Deck::first($deck);
 });
 
 //For assignment 5
