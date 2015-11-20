@@ -13,7 +13,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \App\User::created(function ($user) {
+            \Mail::raw("Welcome to Wellmet.me!", function ($message) use ($user) {
+                $message->from("admin@wellmet.me", "WellMet");
+                $message->to($user->email, $user->name);
+            });
+        });
     }
 
     /**
