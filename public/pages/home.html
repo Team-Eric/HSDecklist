@@ -1,52 +1,56 @@
 <!-- home.html -->
 <div class="jumbotron text-center">
     <h1>Home Page</h1>
-    
+
     <p>{{ message }}</p>
 </div>
 
 <div id="player-classes" class="container">
     <uib-accordion>
-    <div class="row">
-        <div ng-repeat="i in [0,1,2]">
-            <div class="col-md-4">
-                <uib-accordion-group class="class-header" id="{{classList[i] | lowercase}}-header">
-                    <uib-accordion-heading>
-                        <a href="" uib-tooltip="{{classList[i]}}">{{classList[i]}}</a>
-                    </uib-accordion-heading>
-                    <a id="" ng-href="/{{deckListOne[i]}}.html">{{deckListOne[i]}}</a><br />
-                    <a id="" ng-href="/{{deckListTwo[i]}}.html">{{deckListTwo[i]}}</a><br />
-                </uib-accordion-group>
+        <div class="row">
+            <div ng-repeat="i in [0,1,2]">
+                <div class="col-md-4">
+                    <uib-accordion-group class="class-header" id="{{classList[i] | lowercase}}-header">
+                        <uib-accordion-heading>
+                            <a href="" uib-tooltip="{{classList[i]}}">{{classList[i]}}</a>
+                        </uib-accordion-heading>
+                        <a id="" ng-href="/{{deckListOne[i]}}.html">{{deckListOne[i]}}</a>
+                        <br />
+                        <a id="" ng-href="/{{deckListTwo[i]}}.html">{{deckListTwo[i]}}</a>
+                        <br />
+                    </uib-accordion-group>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div ng-repeat="i in [3,4,5]">
-            <div class="col-md-4">
-                <uib-accordion-group class="class-header" id="{{classList[i] | lowercase}}-header">
-                    <uib-accordion-heading>
-                        <a href="" uib-tooltip="{{classList[i]}}">{{classList[i]}}</a>
-                    </uib-accordion-heading>
-                    <a id="" ng-href="/{{deckListOne[i]}}.html">{{deckListOne[i]}}</a><br />
-                    <a id="" ng-href="/{{deckListTwo[i]}}.html">{{deckListTwo[i]}}</a><br />
-                </uib-accordion-group>
+        <div class="row">
+            <div ng-repeat="i in [3,4,5]">
+                <div class="col-md-4">
+                    <uib-accordion-group class="class-header" id="{{classList[i] | lowercase}}-header">
+                        <uib-accordion-heading>
+                            <a href="" uib-tooltip="{{classList[i]}}">{{classList[i]}}</a>
+                        </uib-accordion-heading>
+                        <a id="" ng-href="/{{deckListOne[i]}}.html">{{deckListOne[i]}}</a>
+                        <br />
+                        <a id="" ng-href="/{{deckListTwo[i]}}.html">{{deckListTwo[i]}}</a>
+                        <br />
+                    </uib-accordion-group>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div ng-repeat="i in [6,7,8]">
-            <div class="col-md-4">
-                <uib-accordion-group class="class-header" id="{{classList[i] | lowercase}}-header">
-                    <uib-accordion-heading>
-                        <a href="" uib-tooltip="{{classList[i]}}">{{classList[i]}}</a>
-                    </uib-accordion-heading>
-                    <a id="" ng-href="/{{deckListOne[i]}}.html">{{deckListOne[i]}}</a><br />
-                    
-                    
-                </uib-accordion-group>
+        <div class="row">
+            <div ng-repeat="i in [6,7,8]">
+                <div class="col-md-4">
+                    <uib-accordion-group class="class-header" id="{{classList[i] | lowercase}}-header">
+                        <uib-accordion-heading>
+                            <a href="" uib-tooltip="{{classList[i]}}">{{classList[i]}}</a>
+                        </uib-accordion-heading>
+                        <a id="" ng-href="/{{deckListOne[i]}}.html">{{deckListOne[i]}}</a>
+                        <br />
+
+
+                    </uib-accordion-group>
+                </div>
             </div>
         </div>
-    </div>
     </uib-accordion>
 </div>
-
