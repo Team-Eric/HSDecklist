@@ -18,11 +18,15 @@ Route::get('/', function () {
 });
 
 Route::get('/api/card/{card}', function($cardID) {
-    return \App\Card::find($cardID);
+    return \App\Card::find($cardID)->get();
 });
 
 Route::get('/api/deck/{deck}', function($deck) {
-    return \App\Deck::find($deck);
+    return \App\Deck::find($deck)->get();
+});
+
+Route::get("/api/deck/class/{class}", function($class) {
+	return \App\Deck::where("playerClass", "=", $class)->get();
 });
 
 //For assignment 5
