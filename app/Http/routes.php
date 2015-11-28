@@ -22,7 +22,7 @@ Route::get('/api/card/{card}', function($cardID) {
 });
 
 Route::get('/api/deck/{deck}', function($deck) {
-    return \App\Deck::find($deck)->get();
+    return \App\Deck::with("cards")->find($deck);
 });
 
 Route::get("/api/deck/class/{class}", function($class) {
