@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($cards as $type) {
             foreach ($type as $card) {  //"Basic, classic, credits, debug, goblins, etc.
-                if ($card["type"] != "Hero" && $card["type"] != "Hero Power" && $card["type"] != "Enchantment" && isset($card["cost"]) && isset($card["faction"])) {
+                if ($card["type"] != "Hero" && $card["type"] != "Hero Power" && $card["type"] != "Enchantment" && isset($card["cost"]) ) {
                     print_r($card);
 
                     unset($card["locale"]);
