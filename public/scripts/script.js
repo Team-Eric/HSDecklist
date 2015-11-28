@@ -32,14 +32,19 @@ wellMetApp.controller('mainController', ['$scope', '$http', function ($scope, $h
         'Paladin', 'Priest', 'Rogue',
         'Shaman', 'Warlock', 'Warrior'];
     
+    $scope.decks = [];
     $scope.getDecks = function (playerClass) {
-        $http.get("api/deck/class/Paladin")
-            .then(function (response) {
-                console.log(response);
+        $http.get("api/deck/class/" + playerClass)
+            .then(function success(response) {
+                $scope.decks[playerClass] = response.data;
             });
     };
     
-    $scope.getDecks("Paladin");
+    for (i = 0; i < $scope.classList.length; i++) {
+        $scope.getDecks($scope.classList[i]);
+    }
+    
+
 }]);
 
 wellMetApp.controller('deckController', ['$scope', function ($scope) {

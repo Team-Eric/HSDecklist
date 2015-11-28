@@ -25,9 +25,9 @@
                         <uib-accordion-heading>
                             <a href="" uib-tooltip="{{classList[i]}}">{{classList[i]}}</a>
                         </uib-accordion-heading>
-                        <!--<div ng-repeat="deck in getDecks(classList[i])">
+                        <div ng-repeat="deck in decks[classList[i]]">
                             {{deck.name}}
-                        </div>-->
+                        </div>
                     </uib-accordion-group>
                 </div>
             </div>
