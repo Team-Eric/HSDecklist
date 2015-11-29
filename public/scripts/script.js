@@ -50,6 +50,7 @@ wellMetApp.controller('mainController', ['$scope', '$http', function ($scope, $h
 wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
     $scope.message = 'Deck list';
     $scope.deck_id = $routeParams.id;
+    $scope.deck_name = $routeParams.name;
 
     $scope.cards = [];
     $scope.getCards = function(deck_id) {
