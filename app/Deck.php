@@ -16,7 +16,7 @@ class Deck extends Model {
 
     public function cards()
     {
-        return $this->belongsToMany('App\Card');
+        return $this->belongsToMany('App\Card')->withPivot('count');
     }
 
 }
