@@ -53,6 +53,7 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', func
     $scope.deck_name = $routeParams.name;
 
     $scope.cards = [];
+    $scope.pivot = [];
     $scope.getCards = function(deck_id) {
         $http.get("api/deck/" + deck_id)
             .then(function success(response) {
@@ -61,7 +62,6 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', func
     };
 
     $scope.getCards($scope.deck_id);
-    
 }]);
 
 wellMetApp.controller('contactController', ['$scope', function ($scope) {
