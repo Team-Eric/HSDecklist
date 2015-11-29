@@ -61,8 +61,6 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', func
     };
 
     $scope.getCards($scope.deck_id);
-    console.log($scope.cards);
-
     
 }]);
 
