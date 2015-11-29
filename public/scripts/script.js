@@ -12,8 +12,8 @@ wellMetApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'mainController'
         })
 
-    // route for the about page
-        .when('/deck', {
+    // route for the deck builder page
+        .when('/deck/:deck_name?', {
             templateUrl: '../pages/deck.html',
             controller: 'deckController'
         })
@@ -32,7 +32,7 @@ wellMetApp.controller('mainController', ['$scope', '$http', function ($scope, $h
         'Paladin', 'Priest', 'Rogue',
         'Shaman', 'Warlock', 'Warrior'];
     
-    $scope.decks = [];
+    $scope.decks = [];  
     $scope.getDecks = function (playerClass) {
         $http.get("api/deck/class/" + playerClass)
             .then(function success(response) {
