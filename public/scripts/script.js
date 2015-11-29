@@ -13,7 +13,7 @@ wellMetApp.config(['$routeProvider', function ($routeProvider) {
         })
 
     // route for the deck builder page
-        .when('/deck/:deck_name?', {
+        .when('/deck/:id?/:name?', {
             templateUrl: '../pages/deck.html',
             controller: 'deckController'
         })
@@ -47,8 +47,22 @@ wellMetApp.controller('mainController', ['$scope', '$http', function ($scope, $h
 
 }]);
 
-wellMetApp.controller('deckController', ['$scope', function ($scope) {
+wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
     $scope.message = 'Deck list';
+    $scope.deck_id = $routeParams.id;
+
+    $scope.cards = [];
+    $scope.getCards = function(deck_id) {
+        $http.get("api/deck/" + deck_id)
+            .then(function success(response) {
+                $scope.cards = response.data.cards;
+            });
+    };
+
+    $scope.getCards($scope.deck_id);
+    console.log($scope.cards);
+
+    
 }]);
 
 wellMetApp.controller('contactController', ['$scope', function ($scope) {
