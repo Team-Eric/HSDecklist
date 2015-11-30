@@ -15,7 +15,7 @@
 					<div class="card-name">{{card.name}}</div>
 					<div class="card-usercount">
 						<select ng-model="card.userCount" ng-change="adjustDustCost(card)">
-							<option value="0">0</option>
+							<option value="0" selected>0</option>
 							<option value="1">1</option>
 							<option ng-if="card.pivot.count == 2" value="2">2</option>
 						</select>
