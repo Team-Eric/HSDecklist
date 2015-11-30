@@ -31,33 +31,37 @@ wellMetApp.controller('mainController', ['$scope', '$http', function ($scope, $h
     $scope.classList = ['Druid', 'Hunter', 'Mage',
         'Paladin', 'Priest', 'Rogue',
         'Shaman', 'Warlock', 'Warrior'];
-    
-    $scope.decks = [];  
+
+    $scope.decks = [];
     $scope.getDecks = function (playerClass) {
         $http.get("api/deck/class/" + playerClass)
             .then(function success(response) {
                 $scope.decks[playerClass] = response.data;
             });
     };
-    
+
     for (i = 0; i < $scope.classList.length; i++) {
         $scope.getDecks($scope.classList[i]);
     }
-    
+
 
 }]);
 
-wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'CardCalc', function ($scope, $http, $routeParams, CardCalc) {
     $scope.message = 'Deck list';
     $scope.deck_id = $routeParams.id;
     $scope.deck_name = $routeParams.name;
+    $scope.totalDustCost = 0;
 
     $scope.cards = [];
     $scope.pivot = [];
-    $scope.getCards = function(deck_id) {
+    $scope.getCards = function (deck_id) {
         $http.get("api/deck/" + deck_id)
             .then(function success(response) {
                 $scope.cards = response.data.cards;
+                angular.forEach($scope.cards, function (value) {
+                    $scope.totalDustCost += CardCalc.dustCost(value) * value.pivot.count;
+                });
             });
     };
 
@@ -68,19 +72,28 @@ wellMetApp.controller('contactController', ['$scope', function ($scope) {
     $scope.message = 'Contact us! We love to hear your complaints. Jk.';
 }]);
 
-wellMetApp.service('cardCalcService', function () {
-    this.dustCost = function (rarity) {
-        switch (rarity) {
-            case "Common":
-                return 40;
-            case "Rare":
-                return 100;
-            case "Epic":
-                return 400;
-            case "Legendary":
-                return 1600;
-            default:
-                break;
+wellMetApp.factory('CardCalc', function () {
+    var adventures = ['Naxxramas', 'Blackrock Mountain', 'The League of Explorers'];
+    
+    return {
+        dustCost: function (card) {
+            if (card.cardSet == 'Basic' || adventures.indexOf(card.cardSet) > -1) {
+                // Basic cards can't be crafted. Adventure cards are unlocked with adventure.
+                return 0;
+            }
+            
+            switch (card.rarity) {
+                case "Common":
+                    return 40;
+                case "Rare":
+                    return 100;
+                case "Epic":
+                    return 400;
+                case "Legendary":
+                    return 1600;
+                default:
+                    return 0;
+            }
         }
     };
 });
