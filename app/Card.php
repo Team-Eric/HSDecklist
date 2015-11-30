@@ -22,9 +22,14 @@ class Card extends Model {
 
     protected static $unguarded = true;
 
-
     protected $casts = [
         "mechanics" => 'array',
+        "cost" => "integer",
+        "attack" => "integer",
+        "health" => "integer",
+        "durability" => "integer",
+        "collectible" => "boolean",
+        "elite" => "boolean",
     ];
 
 }
