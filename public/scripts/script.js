@@ -67,10 +67,15 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'Car
             });
     };
     
-    $scope.adjustDustCost = function (card) {
-        // does not account for changing selected value
-        $scope.totalDustCost -= card.userCount * card.dustCost;
-    }
+    $scope.adjustDustCost = function (card, value) {
+        // Should now account for changing selected value
+        if (value > card.userCount) {
+            $scope.totalDustCost += (value - card.userCount) * card.dustCost;
+        }
+        else {
+            $scope.totalDustCost -= card.userCount * card.dustCost;
+        }
+    };
 
     $scope.getCards($scope.deck_id);
 }]);
