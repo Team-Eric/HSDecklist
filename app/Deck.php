@@ -14,6 +14,10 @@ class Deck extends Model {
 
     protected static $unguarded = true;
 
+    protected $casts = [
+        "id" => "integer",
+    ];
+
     public function cards()
     {
         return $this->belongsToMany('App\Card')->withPivot('count');
