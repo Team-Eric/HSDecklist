@@ -39,12 +39,10 @@ wellMetApp.controller('mainController', ['$scope', '$http', function ($scope, $h
                 $scope.decks[playerClass] = response.data;
             });
     };
-
-    for (i = 0; i < $scope.classList.length; i++) {
-        $scope.getDecks($scope.classList[i]);
-    }
-
-
+    
+    angular.forEach($scope.classList, function (playerClass) {
+        $scope.getDecks(playerClass);
+    })
 }]);
 
 wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'CardCalc', function ($scope, $http, $routeParams, CardCalc) {
@@ -59,10 +57,10 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'Car
         $http.get("api/deck/" + deck_id)
             .then(function success(response) {
                 $scope.cards = response.data.cards;
-                angular.forEach($scope.cards, function (value) {
-                    value.dustCost = CardCalc.dustCost(value);
-                    $scope.totalDustCost += value.dustCost * value.pivot.count;
-                    value.userCount = 0;
+                angular.forEach($scope.cards, function (card) {
+                    card.dustCost = CardCalc.dustCost(card);
+                    $scope.totalDustCost += card.dustCost * card.pivot.count;
+                    card.userCount = 0;
                 });
             });
     };

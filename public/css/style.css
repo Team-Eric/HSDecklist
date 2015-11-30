@@ -1,3 +1,10 @@
+body {
+    background-image: url("../img/background.gif");
+	background-repeat: repeat-y;
+	background-position: center; 
+	background-color: Black;
+}
+
 /* ----------- STYLE FOR HOME.HTML ----------- */
 #player-classes {
     margin: auto;
