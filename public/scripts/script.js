@@ -60,10 +60,17 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'Car
             .then(function success(response) {
                 $scope.cards = response.data.cards;
                 angular.forEach($scope.cards, function (value) {
-                    $scope.totalDustCost += CardCalc.dustCost(value) * value.pivot.count;
+                    value.dustCost = CardCalc.dustCost(value);
+                    $scope.totalDustCost += value.dustCost * value.pivot.count;
+                    value.userCount = 0;
                 });
             });
     };
+    
+    $scope.adjustDustCost = function (card) {
+        // does not account for changing selected value
+        $scope.totalDustCost -= card.userCount * card.dustCost;
+    }
 
     $scope.getCards($scope.deck_id);
 }]);

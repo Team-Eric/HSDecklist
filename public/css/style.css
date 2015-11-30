@@ -88,6 +88,12 @@
     float: right;
 }
 
+.card-usercount {
+    display: block;
+    padding-right: 10px;
+    float: right;
+}
+
 .content {
     height: 500px;
     border: solid 1px;
