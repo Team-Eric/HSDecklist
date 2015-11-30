@@ -6,16 +6,30 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-3 decklist">
+		<div class="col-md-4 decklist">
 			<div id="deck-header">{{deck_name}}</div>
 			<div ng-repeat="card in cards | orderBy:['+cost', '+name']">
 				<div class="card">
 					<div class="card-cost">{{card.cost}}</div>
 					<div class="card-name">{{card.name}}</div>
+					<div class="card-usercount">
+						<select ng-model="card.userCount" ng-change="adjustDustCost(card)">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option ng-if="card.pivot.count == 2" value="2">2</option>
+						</select>
+					</div>
 					<div class="card-count">{{card.pivot.count}}</div>
 				</div>
 			</div>
 		</div>
-
+		<div class="col-md-8">
+			<table>
+				<tr>
+					<td><b>Total dust cost</b></td>
+					<td>{{totalDustCost}}</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </div>
