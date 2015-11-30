@@ -7,6 +7,15 @@
 .class-header {
     text-align: center;
     margin: 10px;
+
+}
+#Nav a{
+     color: #f2f2f2;
+     text-decoration:none;
+}
+
+#Nav a:hover {
+    text-decoration: underline;
 }
 
 #druid-header .panel-heading {
