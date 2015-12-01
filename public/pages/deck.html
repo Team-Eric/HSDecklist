@@ -23,9 +23,9 @@
 						<td align="left">{{card.name}}</td>
 						<td>{{card.pivot.count}}</td>
 						<td>
-							<button class="btn btn-small btn-danger" ng-click="adjustCount(card, 1); card.userCount = card.userCount - 1" ng-disabled="card.userCount == 0">-</button>
-							{{ card.userCount }}
-							<button class="btn btn-small btn-success" ng-click="adjustCount(card, -1); card.userCount = card.userCount + 1" ng-disabled="card.userCount == {{card.pivot.count}}">+</button>
+							<button class="btn btn-small btn-danger" ng-click=" $parent.storage[card.cardId] = $parent.storage[card.cardId] - 1; adjustCount()" ng-disabled="$parent.storage[card.cardId] == 0 || card.cardSet == 'Basic' ">-</button>
+							{{ $parent.storage[card.cardId] }}
+							<button class="btn btn-small btn-success" ng-click="$parent.storage[card.cardId] = $parent.storage[card.cardId] + 1; adjustCount()" ng-disabled="$parent.storage[card.cardId] == 2 || card.cardSet == 'Basic' ">+</button>
 						</td>
 					</tr>
 				</table>
@@ -40,7 +40,7 @@
 				<table class="table">
 					<tr>
 						<td><b>Total dust cost</b></td>
-						<td><img src="../img/dust-bottle.png"> {{totalDustCost}}</td>
+						<td><img src="/img/dust-bottle.png"> {{totalDustCost}}</td>
 					</tr>
 					<tr>
 						<td><b>Optimal pack</b></td>

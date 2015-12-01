@@ -1,6 +1,6 @@
 // script.js
 
-var wellMetApp = angular.module('wellMetApp', ['ngRoute', 'ui.bootstrap']);
+var wellMetApp = angular.module('wellMetApp', ['ngRoute', 'ui.bootstrap', 'ngStorage']);
 
 // configure our routes
 wellMetApp.config(['$routeProvider', function ($routeProvider) {
@@ -45,7 +45,7 @@ wellMetApp.controller('mainController', ['$scope', '$http', function ($scope, $h
     })
 }]);
 
-wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', '$sce', 'CardService', function ($scope, $http, $routeParams, $sce, CardService) {
+wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', '$sce', '$localStorage', 'CardService', function ($scope, $http, $routeParams, $sce, $localStorage, CardService) {
     $scope.message = 'Deck list';
     $scope.deck_id = $routeParams.id;
     $scope.deck_name = $routeParams.name;
@@ -55,34 +55,50 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', '$sc
     $scope.optimalPack = '';
     $scope.cardSetCount = {};
     $scope.cardImage = "http://i.imgur.com/mMrn4eI.png";
+    $scope.storage = $localStorage;
 
     CardService.getCardSets().forEach(function (pack) {
         $scope.cardSetCount[pack] = 0;
     });
 
     $scope.cards = [];
-    $scope.pivot = [];
     $scope.getCards = function (deck_id) {
         $http.get('api/deck/' + deck_id)
             .then(function success(response) {
                 $scope.cards = response.data.cards;
-                $scope.cards.forEach(function (card) {
-                    // Dust
-                    card.dustCost = CardService.dustCost(card);
-                    $scope.totalDustCost += card.dustCost * card.pivot.count;
 
-                    // Counts
-                    card.userCount = 0;
-                    $scope.cardSetCount[card.cardSet] += +card.pivot.count;
+                $scope.cards.forEach(function (card) {
+
+                    card.dustCost = CardService.dustCost(card);
+
+                    if (!(card.cardId in $scope.storage)) {
+                        if (card.cardSet == "Basic") {
+                            $scope.storage[card.cardId] = 2;
+                        } else {
+                            $scope.storage[card.cardId] = 0;
+                        }
+                    }
                 });
-                $scope.calcOptimalPack();
+
+                $scope.adjustCount();
             });
     };
 
-    $scope.adjustCount = function (card, value) {
-        $scope.totalDustCost += value * card.dustCost;
-        $scope.cardSetCount[card.cardSet] += value;
-        $scope.totalCount -= value;
+    $scope.adjustCount = function () {
+        $scope.totalDustCost = 0;
+        $scope.totalCount = 0;
+
+        $scope.cards.forEach(function (card) {
+            //If we have less than the number needed
+            if ( $scope.storage[card.cardId] < card.pivot.count) {
+                $scope.totalDustCost += card.dustCost * (card.pivot.count - $scope.storage[card.cardId]) ;
+                $scope.cardSetCount[card.cardSet] += card.pivot.count - $scope.storage[card.cardId] ;
+                $scope.totalCount += $scope.storage[card.cardId];
+               // $scope.totalCount += $scope.storage[card.cardId];
+            } else {
+                $scope.totalCount += parseInt(card.pivot.count);
+            }
+        });
 
         $scope.calcOptimalPack();
     };
