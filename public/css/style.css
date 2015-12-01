@@ -69,26 +69,11 @@ body {
 
 #deck-header {
     text-align: center;
-    height: 50px;
-    line-height: 50px;
-    border-style: solid;
-    border-width: 1px;
-}
-
-.class-header a {
-    color: inherit;
-}
-
-.card {
-    height: 30px;
-    line-height: 30px;
-    border: solid 1px;
 }
 
 .card-set {
     display: block;
     float: left;
-    border-right: solid 1px;
 }
 
 .card-set img {
@@ -97,33 +82,8 @@ body {
     margin: auto;
 }
 
-.card-cost {
-    display: block;
-    float: left;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-right: solid 1px;
-}
-
-.card-name {
-    display: inline-block;
-    text-align: left;
-    width: auto;
-    padding-left: 10px;
-}
-
-.card-count {
-    display: block;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-left: solid 1px;
-    float: right;
-}
-
-.card-usercount {
-    display: block;
-    padding-right: 10px;
-    float: right;
+.panel tr {
+    height: 20px;
 }
 
 #progress {
