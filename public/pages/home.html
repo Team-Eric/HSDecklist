@@ -12,35 +12,7 @@ a:hover {
 <div id="player-classes" class="container">
     <uib-accordion>
         <div class="row">
-            <div ng-repeat="i in [0,1,2]">
-                <div class="col-md-4">
-                    <uib-accordion-group class="class-header" id="{{classList[i] | lowercase}}-header">
-                        <uib-accordion-heading>
-                            <a class="btn btn-block" href="" uib-tooltip="{{classList[i]}}">{{classList[i]}}</a>
-                        </uib-accordion-heading>
-                        <div ng-repeat="deck in decks[classList[i]]">
-                            <a ng-href="#/deck/{{deck.id}}/{{deck.name}}/">{{deck.name}}</a>
-                        </div>
-                    </uib-accordion-group>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div ng-repeat="i in [3,4,5]">
-                <div class="col-md-4">
-                    <uib-accordion-group class="class-header" id="{{classList[i] | lowercase}}-header">
-                        <uib-accordion-heading>
-                            <a class="btn btn-block" href="" uib-tooltip="{{classList[i]}}">{{classList[i]}}</a>
-                        </uib-accordion-heading>
-                        <div ng-repeat="deck in decks[classList[i]]">
-                            <a ng-href="#/deck/{{deck.id}}/{{deck.name}}/">{{deck.name}}</a>
-                        </div>
-                    </uib-accordion-group>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div ng-repeat="i in [6,7,8]">
+            <div ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7, 8]">
                 <div class="col-md-4">
                     <uib-accordion-group class="class-header" id="{{classList[i] | lowercase}}-header">
                         <uib-accordion-heading>
