@@ -8,32 +8,29 @@
 		<div class="col-md-4 decklist">
 			<div class="panel panel-default">
 				<div class="panel-heading" id="deck-header">{{deck_name}}</div>
-
-				<div ng-repeat="card in cards | orderBy:['+cost', '+name']">
-					<table ng-mouseover="$parent.cardImage = card.img" class="card table">
-						<tr>
-							<td width="10%" ng-switch="card.cardSet">
-								<div ng-switch-when="Basic" class="card-set"><img ng-src="../img/Basic.png"> </div>
-								<div ng-switch-when="Naxxramas" class="card-set"><img ng-src="../img/Naxxramas.png"> </div>
-								<div ng-switch-when="Blackrock Mountain" class="card-set"><img ng-src="../img/Blackrock.png"> </div>
-								<div ng-switch-when="Classic" class="card-set"><img ng-src="../img/Classic.png"> </div>
-								<div ng-switch-when="Goblins vs Gnomes" class="card-set"><img ng-src="../img/Goblins vs Gnomes.png"> </div>
-								<div ng-switch-when="The Grand Tournament" class="card-set"><img ng-src="../img/Grand Tournament.png"> </div>
-								<div ng-switch-when="The League of Explorers" class="card-set"><img ng-src="../img/League of Explorers.png"> </div>
-							</td>
-							<td width="10%">{{card.cost}}</td>
-							<td width="60%" align="left">{{card.name}}</td>
-							<td width="10%">{{card.pivot.count}}</td>
-							<td width="10%">
-								<select ng-model="card.userCount" ng-change="adjustCount(card, '{{card.userCount}}')">
-									<option value="0">0</option>
-									<option value="1">1</option>
-									<option ng-if="card.pivot.count == 2" value="2">2</option>
-								</select>
-							</td>
-						</tr>
-					</table>
-				</div>
+				<table ng-repeat="card in cards | orderBy:['+cost', '+name']" ng-mouseover="$parent.cardImage = card.img" class="card table">
+					<tr>
+						<td width="10%" ng-switch="card.cardSet">
+							<div ng-switch-when="Basic" class="card-set"><img ng-src="../img/Basic.png"> </div>
+							<div ng-switch-when="Naxxramas" class="card-set"><img ng-src="../img/Naxxramas.png"> </div>
+							<div ng-switch-when="Blackrock Mountain" class="card-set"><img ng-src="../img/Blackrock.png"> </div>
+							<div ng-switch-when="Classic" class="card-set"><img ng-src="../img/Classic.png"> </div>
+							<div ng-switch-when="Goblins vs Gnomes" class="card-set"><img ng-src="../img/Goblins vs Gnomes.png"> </div>
+							<div ng-switch-when="The Grand Tournament" class="card-set"><img ng-src="../img/Grand Tournament.png"> </div>
+							<div ng-switch-when="The League of Explorers" class="card-set"><img ng-src="../img/League of Explorers.png"> </div>
+						</td>
+						<td width="10%">{{card.cost}}</td>
+						<td width="60%" align="left">{{card.name}}</td>
+						<td width="10%">{{card.pivot.count}}</td>
+						<td width="10%">
+							<select ng-model="card.userCount" ng-change="adjustCount(card, '{{card.userCount}}')">
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option ng-if="card.pivot.count == 2" value="2">2</option>
+							</select>
+						</td>
+					</tr>
+				</table>
 			</div>
 			<div id="progress">
 				<small><em>Deck Progress</em></small>

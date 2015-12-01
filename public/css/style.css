@@ -71,19 +71,9 @@ body {
     text-align: center;
 }
 
-.card-set {
-    display: block;
-    float: left;
-}
-
 .card-set img {
     max-height: 30px;
     max-width: 30px;
-    margin: auto;
-}
-
-.panel tr {
-    height: 20px;
 }
 
 #progress {
