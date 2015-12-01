@@ -91,9 +91,10 @@ body {
     border-right: solid 1px;
 }
 
-.card-set img{
+.card-set img {
     max-height: 30px;
     max-width: 30px;
+    margin: auto;
 }
 
 .card-cost {
