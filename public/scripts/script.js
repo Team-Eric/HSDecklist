@@ -85,8 +85,8 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'Car
             $scope.cardSetCount[card.cardSet] += value - card.userCount;
             $scope.totalCount -= value - card.userCount;
         } else {
-            $scope.totalDustCost -= card.userCount * card.dustCost;
-            $scope.cardSetCount[card.cardSet] -= card.userCount;
+            $scope.totalDustCost -= (card.userCount - value) * card.dustCost;
+            $scope.cardSetCount[card.cardSet] -= card.userCount - value;
             $scope.totalCount += card.userCount - value;
         }
         
