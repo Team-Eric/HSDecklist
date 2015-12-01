@@ -7,8 +7,8 @@
 	<div class="row">
 		<div class="col-md-4 decklist">
 			<div class="panel panel-default">
-				<div class="panel-heading" id="deck-header">{{deck_name}}</div>
-				<table ng-repeat="card in cards | orderBy:['+cost', '+name']" ng-mouseover="$parent.cardImage = card.img" class="card table">
+				<div class="panel-heading text-center">{{deck_name}}</div>
+				<table ng-repeat="card in cards | orderBy:['+cost', '+name']" ng-mouseover="$parent.cardImage = card.img" class="card table table-condensed table-bordered table-hover">
 					<tr>
 						<td width="10%" ng-switch="card.cardSet">
 							<div ng-switch-when="Basic" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/Basic.png"> </div>

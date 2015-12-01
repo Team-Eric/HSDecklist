@@ -70,10 +70,6 @@ body {
 
 /* ----------- STYLE FOR DECK.HTML ----------- */
 
-#deck-header {
-    text-align: center;
-}
-
 .card-set img {
     max-height: 30px;
     max-width: 30px;
