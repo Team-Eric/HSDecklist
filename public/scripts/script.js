@@ -99,13 +99,6 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'Car
         });
     };
 
-    $scope.cardSetImage = function(card) {
-        var image = document.getElementById("card-set");
-        if (card.cardset == 'Basic') {
-            image.innerHTML = '<img ng-src"' + '\.\./img/Basic.png' + '"/>';
-        }
-    };
-
     $scope.getCards($scope.deck_id);
     
 }]);
