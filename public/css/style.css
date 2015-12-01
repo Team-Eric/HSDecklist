@@ -122,7 +122,10 @@ body {
     float: right;
 }
 
-.content {
-    height: 500px;
-    border: solid 1px;
+#cardSetIndex {
+    margin-top: 32%;
+    display: block;
+    float: right;
+    height: 220px;
+    width: 220px;
 }
