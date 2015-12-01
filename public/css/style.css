@@ -14,7 +14,10 @@ body {
 .class-header {
     text-align: center;
     margin: 10px;
+}
 
+.class-header a {
+    color: inherit;
 }
 
 .navbar {
