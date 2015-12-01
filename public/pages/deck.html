@@ -11,13 +11,13 @@
 				<table class="card table table-condensed table-bordered table-hover">
 					<tr ng-repeat="card in cards | orderBy:['+cost', '+name']" ng-mouseover="$parent.cardImage = card.img" >
 						<td ng-switch="card.cardSet">
-							<div ng-switch-when="Basic" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/Basic.png"> </div>
-							<div ng-switch-when="Naxxramas" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/Naxxramas.png"> </div>
-							<div ng-switch-when="Blackrock Mountain" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/Blackrock.png"> </div>
-							<div ng-switch-when="Classic" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/Classic.png"> </div>
-							<div ng-switch-when="Goblins vs Gnomes" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/Goblins vs Gnomes.png"> </div>
-							<div ng-switch-when="The Grand Tournament" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/Grand Tournament.png"> </div>
-							<div ng-switch-when="The League of Explorers" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/League of Explorers.png"> </div>
+							<div ng-switch-when="Basic" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="/img/Basic.png"> </div>
+							<div ng-switch-when="Naxxramas" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="/img/Naxxramas.png"> </div>
+							<div ng-switch-when="Blackrock Mountain" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="/img/Blackrock.png"> </div>
+							<div ng-switch-when="Classic" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="/img/Classic.png"> </div>
+							<div ng-switch-when="Goblins vs Gnomes" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="/img/Goblins vs Gnomes.png"> </div>
+							<div ng-switch-when="The Grand Tournament" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="/img/Grand Tournament.png"> </div>
+							<div ng-switch-when="The League of Explorers" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="/img/League of Explorers.png"> </div>
 						</td>
 						<td>{{card.cost}}</td>
 						<td align="left">{{card.name}}</td>
@@ -51,7 +51,7 @@
 			<img src="{{cardImage}}">
 		</div>
 		<div class="col-md-3">
-			<img id="cardSetIndex" src="../img/Cardset Index.png">
+			<img id="cardSetIndex" src="/img/Cardset Index.png">
 		</div>
 	</div>
 </div>
