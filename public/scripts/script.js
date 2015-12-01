@@ -27,7 +27,7 @@ wellMetApp.config(['$routeProvider', function ($routeProvider) {
 
 // create the controller and inject Angular's $scope
 wellMetApp.controller('mainController', ['$scope', '$http', function ($scope, $http) {
-    $scope.message = 'Choose your deck. Let us, decide your fate.';
+    $scope.message = 'Choose your deck. Let us decide your fate.';
     $scope.classList = ['Druid', 'Hunter', 'Mage',
         'Paladin', 'Priest', 'Rogue',
         'Shaman', 'Warlock', 'Warrior'];
