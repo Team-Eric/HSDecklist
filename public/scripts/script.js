@@ -80,16 +80,9 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', '$sc
     };
 
     $scope.adjustCount = function (card, value) {
-        // Should now account for changing selected value   
-        if (value > card.userCount) {
-            $scope.totalDustCost += (value - card.userCount) * card.dustCost;
-            $scope.cardSetCount[card.cardSet] += value - card.userCount;
-            $scope.totalCount -= value - card.userCount;
-        } else {
-            $scope.totalDustCost -= (card.userCount - value) * card.dustCost;
-            $scope.cardSetCount[card.cardSet] -= card.userCount - value;
-            $scope.totalCount += card.userCount - value;
-        }
+        $scope.totalDustCost += value * card.dustCost;
+        $scope.cardSetCount[card.cardSet] += value;
+        $scope.totalCount += value;
 
         $scope.calcOptimalPack();
     };

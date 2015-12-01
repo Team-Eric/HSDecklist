@@ -8,9 +8,9 @@
 		<div class="col-md-4 decklist">
 			<div class="panel panel-default">
 				<div class="panel-heading text-center">{{deck_name}}</div>
-				<table ng-repeat="card in cards | orderBy:['+cost', '+name']" ng-mouseover="$parent.cardImage = card.img" class="card table table-condensed table-bordered table-hover">
-					<tr>
-						<td width="10%" ng-switch="card.cardSet">
+				<table class="card table table-condensed table-bordered table-hover">
+					<tr ng-repeat="card in cards | orderBy:['+cost', '+name']" ng-mouseover="$parent.cardImage = card.img" >
+						<td ng-switch="card.cardSet">
 							<div ng-switch-when="Basic" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/Basic.png"> </div>
 							<div ng-switch-when="Naxxramas" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/Naxxramas.png"> </div>
 							<div ng-switch-when="Blackrock Mountain" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/Blackrock.png"> </div>
@@ -19,15 +19,13 @@
 							<div ng-switch-when="The Grand Tournament" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/Grand Tournament.png"> </div>
 							<div ng-switch-when="The League of Explorers" class="card-set"><img uib-tooltip="{{card.cardSet}}" ng-src="../img/League of Explorers.png"> </div>
 						</td>
-						<td width="10%">{{card.cost}}</td>
-						<td width="60%" align="left">{{card.name}}</td>
-						<td width="10%">{{card.pivot.count}}</td>
-						<td width="10%">
-							<select ng-model="card.userCount" ng-change="adjustCount(card, '{{card.userCount}}')">
-								<option value="0">0</option>
-								<option value="1">1</option>
-								<option ng-if="card.pivot.count == 2" value="2">2</option>
-							</select>
+						<td>{{card.cost}}</td>
+						<td align="left">{{card.name}}</td>
+						<td>{{card.pivot.count}}</td>
+						<td>
+							<button class="btn btn-small btn-danger" ng-click="adjustCount(card, 1); card.userCount = card.userCount - 1" ng-disabled="card.userCount == 0">-</button>
+							{{ card.userCount }}
+							<button class="btn btn-small btn-success" ng-click="adjustCount(card, -1); card.userCount = card.userCount + 1" ng-disabled="card.userCount == {{card.pivot.count}}">+</button>
 						</td>
 					</tr>
 				</table>
