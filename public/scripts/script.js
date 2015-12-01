@@ -54,7 +54,7 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', '$sc
     $scope.totalDustCost = 0;
     $scope.optimalPack = '';
     $scope.cardSetCount = {};
-    $scope.cardImage = "http://wow.zamimg.com/images/hearthstone/cards/enus/animated/CS2_072_premium.gif";
+    $scope.cardImage = "http://i.imgur.com/mMrn4eI.png";
 
     CardService.getCardSets().forEach(function (pack) {
         $scope.cardSetCount[pack] = 0;
