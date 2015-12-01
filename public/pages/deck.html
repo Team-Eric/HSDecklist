@@ -8,7 +8,7 @@
 		<div class="col-md-4 decklist">
 			<div id="deck-header">{{deck_name}}</div>
 			<div ng-repeat="card in cards | orderBy:['+cost', '+name']">
-				<div class="card">
+				<div ng-mouseover="$parent.cardImage = card.img" class="card">
 					<div ng-switch="card.cardSet">
 						<div ng-switch-when="Basic" class="card-set"><img ng-src="../img/Basic.png"> </div>
 						<div ng-switch-when="Naxxramas" class="card-set"><img ng-src="../img/Naxxramas.png"> </div>
@@ -46,6 +46,7 @@
 					<td>{{optimalPack}}</td>
 				</tr>
 			</table>
+			<img src="{{cardImage}}">
 			<img id="cardSetIndex" src="../img/Cardset Index.png">
 		</div>
 	</div>
