@@ -28,6 +28,7 @@
     <script src="/scripts/ui-bootstrap-tpls-0.14.3.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
     <script src="/scripts/script.js"></script>
+    <base href="/" />
 </head>
 
 <!-- HEADER AND NAVBAR -->
@@ -35,12 +36,12 @@
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#/">Well Met!</a>
+                <a class="navbar-brand" href="/">Well Met!</a>
             </div>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+                <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="/contact"><i class="fa fa-comment"></i> Contact</a></li>
             </ul>
         </div>
     </nav>

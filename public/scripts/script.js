@@ -3,7 +3,7 @@
 var wellMetApp = angular.module('wellMetApp', ['ngRoute', 'ui.bootstrap', 'ngStorage']);
 
 // configure our routes
-wellMetApp.config(['$routeProvider', function ($routeProvider) {
+wellMetApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
 
     // route for the home page
@@ -23,6 +23,8 @@ wellMetApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl: '../pages/contact.html',
             controller: 'contactController'
         });
+
+    $locationProvider.html5Mode(true);
 }]);
 
 // create the controller and inject Angular's $scope
@@ -94,7 +96,6 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', '$sc
                 $scope.totalDustCost += card.dustCost * (card.pivot.count - $scope.storage[card.cardId]) ;
                 $scope.cardSetCount[card.cardSet] += card.pivot.count - $scope.storage[card.cardId] ;
                 $scope.totalCount += $scope.storage[card.cardId];
-               // $scope.totalCount += $scope.storage[card.cardId];
             } else {
                 $scope.totalCount += parseInt(card.pivot.count);
             }

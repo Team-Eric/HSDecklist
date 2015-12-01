@@ -1,6 +1,5 @@
 <?php
 
-use League\CommonMark\CommonMarkConverter;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +13,7 @@ use League\CommonMark\CommonMarkConverter;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/api/card/{card}', function($cardID) {
