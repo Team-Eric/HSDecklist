@@ -82,7 +82,7 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', '$sc
     $scope.adjustCount = function (card, value) {
         $scope.totalDustCost += value * card.dustCost;
         $scope.cardSetCount[card.cardSet] += value;
-        $scope.totalCount += value;
+        $scope.totalCount -= value;
 
         $scope.calcOptimalPack();
     };
