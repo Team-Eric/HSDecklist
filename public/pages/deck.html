@@ -13,6 +13,7 @@ objDiv.scrollTop = objDiv.scrollHeight;
 			<div id="deck-header">{{deck_name}}</div>
 			<div ng-repeat="card in cards | orderBy:['+cost', '+name']">
 				<div class="card">
+					<div class="card-set"><img src="../img/Basic.png"></div>
 					<div class="card-cost">{{card.cost}}</div>
 					<div class="card-name">{{card.name}}</div>
 					<div class="card-usercount">

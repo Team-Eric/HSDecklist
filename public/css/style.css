@@ -82,6 +82,17 @@ body {
     border: solid 1px;
 }
 
+.card-set {
+    display: block;
+    float: left;
+    border-right: solid 1px;
+}
+
+.card-set img{
+    max-height: 30px;
+    max-width: 30px;
+}
+
 .card-cost {
     display: block;
     float: left;
