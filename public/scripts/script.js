@@ -34,46 +34,70 @@ wellMetApp.controller('mainController', ['$scope', '$http', function ($scope, $h
 
     $scope.decks = [];
     $scope.getDecks = function (playerClass) {
-        $http.get("api/deck/class/" + playerClass)
+        $http.get('api/deck/class/' + playerClass)
             .then(function success(response) {
                 $scope.decks[playerClass] = response.data;
             });
     };
-    
-    angular.forEach($scope.classList, function (playerClass) {
+
+    $scope.classList.forEach(function (playerClass) {
         $scope.getDecks(playerClass);
     })
 }]);
 
-wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'CardCalc', function ($scope, $http, $routeParams, CardCalc) {
+wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'CardService', function ($scope, $http, $routeParams, CardService) {
     $scope.message = 'Deck list';
     $scope.deck_id = $routeParams.id;
     $scope.deck_name = $routeParams.name;
     $scope.totalDustCost = 0;
+    $scope.optimalPack = '';
+    $scope.cardSetCount = {};
+
+    CardService.getCardSets().forEach(function (pack) {
+        $scope.cardSetCount[pack] = 0;
+    })
 
     $scope.cards = [];
     $scope.pivot = [];
     $scope.getCards = function (deck_id) {
-        $http.get("api/deck/" + deck_id)
+        $http.get('api/deck/' + deck_id)
             .then(function success(response) {
                 $scope.cards = response.data.cards;
-                angular.forEach($scope.cards, function (card) {
-                    card.dustCost = CardCalc.dustCost(card);
+                $scope.cards.forEach(function (card) {
+                    // Dust
+                    card.dustCost = CardService.dustCost(card);
                     $scope.totalDustCost += card.dustCost * card.pivot.count;
+
+                    // Counts
                     card.userCount = 0;
+                    $scope.cardSetCount[card.cardSet] += +card.pivot.count;
                 });
+                $scope.calcOptimalPack();
             });
     };
-    
-    $scope.adjustDustCost = function (card, value) {
-        // Should now account for changing selected value
+
+    $scope.adjustCount = function (card, value) {
+        // Should now account for changing selected value        
         if (value > card.userCount) {
             $scope.totalDustCost += (value - card.userCount) * card.dustCost;
-        }
-        else {
+            $scope.cardSetCount[card.cardSet] += value - card.userCount;
+        } else {
             $scope.totalDustCost -= card.userCount * card.dustCost;
+            $scope.cardSetCount[card.cardSet] -= card.userCount;
         }
+        
+        $scope.calcOptimalPack();
     };
+
+    $scope.calcOptimalPack = function () {
+        var max = -1;
+        angular.forEach($scope.cardSetCount, function (count, cardSet) {
+            if (CardService.getCardPacks().indexOf(cardSet) > -1 && max < count) {
+                max = count;
+                $scope.optimalPack = cardSet;
+            }
+        });
+    }
 
     $scope.getCards($scope.deck_id);
 }]);
@@ -82,24 +106,34 @@ wellMetApp.controller('contactController', ['$scope', function ($scope) {
     $scope.message = 'Our job is to squash the bugs. And to take care of you.';
 }]);
 
-wellMetApp.factory('CardCalc', function () {
+wellMetApp.factory('CardService', function () {
     var adventures = ['Naxxramas', 'Blackrock Mountain', 'The League of Explorers'];
-    
+    var cardPacks = ['Classic', 'Goblins vs Gnomes', 'The Grand Tournament'];
+    var cardSets = adventures.concat(cardPacks, ['Basic']); // gross?
+
     return {
+        getCardPacks: function () {
+            return cardPacks;
+        },
+
+        getCardSets: function () {
+            return cardSets;
+        },
+
         dustCost: function (card) {
             if (card.cardSet == 'Basic' || adventures.indexOf(card.cardSet) > -1) {
                 // Basic cards can't be crafted. Adventure cards are unlocked with adventure.
                 return 0;
             }
-            
+
             switch (card.rarity) {
-                case "Common":
+                case 'Common':
                     return 40;
-                case "Rare":
+                case 'Rare':
                     return 100;
-                case "Epic":
+                case 'Epic':
                     return 400;
-                case "Legendary":
+                case 'Legendary':
                     return 1600;
                 default:
                     return 0;

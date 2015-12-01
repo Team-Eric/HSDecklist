@@ -16,7 +16,7 @@ objDiv.scrollTop = objDiv.scrollHeight;
 					<div class="card-cost">{{card.cost}}</div>
 					<div class="card-name">{{card.name}}</div>
 					<div class="card-usercount">
-						<select ng-model="card.userCount" ng-change="adjustDustCost(card, '{{card.userCount}}')">
+						<select ng-model="card.userCount" ng-change="adjustCount(card, '{{card.userCount}}')">
 							<option value="0">0</option>
 							<option value="1">1</option>
 							<option ng-if="card.pivot.count == 2" value="2">2</option>
@@ -31,6 +31,10 @@ objDiv.scrollTop = objDiv.scrollHeight;
 				<tr>
 					<td><b>Total dust cost</b></td>
 					<td>{{totalDustCost}}</td>
+				</tr>
+				<tr>
+					<td><b>Optimal pack</b></td>
+					<td>{{optimalPack}}</td>
 				</tr>
 			</table>
 		</div>
