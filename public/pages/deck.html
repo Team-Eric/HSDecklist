@@ -8,16 +8,16 @@
 		<div class="col-md-4 decklist">
 			<div id="deck-header">{{deck_name}}</div>
 			<div ng-repeat="card in cards | orderBy:['+cost', '+name']">
-				<div class="card">
+				<div ng-mouseover="$parent.cardImage = card.img" class="card">
 					<div ng-switch="card.cardSet">
-                        <div ng-switch-when="Basic" class="card-set"><img ng-src="../img/Basic.png"> </div>
-                        <div ng-switch-when="Naxxramas" class="card-set"><img ng-src="../img/Naxxramas.png"> </div>
-                        <div ng-switch-when="Blackrock Mountain" class="card-set"><img ng-src="../img/Blackrock.png"> </div>
-                        <div ng-switch-when="Classic" class="card-set"><img ng-src="../img/Classic.png"> </div>
-                        <div ng-switch-when="Goblins vs Gnomes" class="card-set"><img ng-src="../img/Goblins vs Gnomes.png"> </div>
-                        <div ng-switch-when="The Grand Tournament" class="card-set"><img ng-src="../img/Grand Tournament.png"> </div>
-                        <div ng-switch-when="The League of Explorers" class="card-set"><img ng-src="../img/League of Explorers.png"> </div>
-                    </div>
+						<div ng-switch-when="Basic" class="card-set"><img ng-src="../img/Basic.png"> </div>
+						<div ng-switch-when="Naxxramas" class="card-set"><img ng-src="../img/Naxxramas.png"> </div>
+						<div ng-switch-when="Blackrock Mountain" class="card-set"><img ng-src="../img/Blackrock.png"> </div>
+						<div ng-switch-when="Classic" class="card-set"><img ng-src="../img/Classic.png"> </div>
+						<div ng-switch-when="Goblins vs Gnomes" class="card-set"><img ng-src="../img/Goblins vs Gnomes.png"> </div>
+						<div ng-switch-when="The Grand Tournament" class="card-set"><img ng-src="../img/Grand Tournament.png"> </div>
+						<div ng-switch-when="The League of Explorers" class="card-set"><img ng-src="../img/League of Explorers.png"> </div>
+					</div>
 					<div class="card-cost">{{card.cost}}</div>
 					<div class="card-name">{{card.name}}</div>
 					<div class="card-usercount">
@@ -30,7 +30,28 @@
 					<div class="card-count">{{card.pivot.count}}</div>
 				</div>
 			</div>
+			<div id="progress">
+				<small><em>Deck Progress</em></small>
+				<uib-progressbar value="totalCount" max="maxCount">{{totalCount}}/{{maxCount}}</uib-progressbar>
+			</div>
 		</div>
+<<<<<<< HEAD
+		<div class="col-md-5">
+			<div class="panel panel-default">
+				<table class="table">
+					<tr>
+						<td><b>Total dust cost</b></td>
+						<td>{{totalDustCost}}</td>
+					</tr>
+					<tr>
+						<td><b>Optimal pack</b></td>
+						<td>{{optimalPack}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-3">
+=======
 		<div class="col-md-8">
 			<table>
 				<tr>
@@ -42,6 +63,8 @@
 					<td>{{optimalPack}}</td>
 				</tr>
 			</table>
+			<img src="{{cardImage}}">
+>>>>>>> a8ee97de26d8c85c2c900701a55438e6add3217c
 			<img id="cardSetIndex" src="../img/Cardset Index.png">
 		</div>
 	</div>

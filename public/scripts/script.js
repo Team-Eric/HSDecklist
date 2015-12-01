@@ -45,13 +45,16 @@ wellMetApp.controller('mainController', ['$scope', '$http', function ($scope, $h
     })
 }]);
 
-wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'CardService', function ($scope, $http, $routeParams, CardService) {
+wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', '$sce', 'CardService', function ($scope, $http, $routeParams, $sce, CardService) {
     $scope.message = 'Deck list';
     $scope.deck_id = $routeParams.id;
     $scope.deck_name = $routeParams.name;
+    $scope.totalCount = 0;
+    $scope.maxCount = 30;
     $scope.totalDustCost = 0;
     $scope.optimalPack = '';
     $scope.cardSetCount = {};
+    $scope.cardImage = "http://wow.zamimg.com/images/hearthstone/cards/enus/animated/CS2_072_premium.gif";
 
     CardService.getCardSets().forEach(function (pack) {
         $scope.cardSetCount[pack] = 0;
@@ -77,15 +80,17 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'Car
     };
 
     $scope.adjustCount = function (card, value) {
-        // Should now account for changing selected value        
+        // Should now account for changing selected value   
         if (value > card.userCount) {
             $scope.totalDustCost += (value - card.userCount) * card.dustCost;
             $scope.cardSetCount[card.cardSet] += value - card.userCount;
+            $scope.totalCount -= value - card.userCount;
         } else {
-            $scope.totalDustCost -= card.userCount * card.dustCost;
-            $scope.cardSetCount[card.cardSet] -= card.userCount;
+            $scope.totalDustCost -= (card.userCount - value) * card.dustCost;
+            $scope.cardSetCount[card.cardSet] -= card.userCount - value;
+            $scope.totalCount += card.userCount - value;
         }
-        
+
         $scope.calcOptimalPack();
     };
 
@@ -100,7 +105,7 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', 'Car
     };
 
     $scope.getCards($scope.deck_id);
-    
+
 }]);
 
 wellMetApp.controller('contactController', ['$scope', function ($scope) {

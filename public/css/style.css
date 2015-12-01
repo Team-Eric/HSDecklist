@@ -125,10 +125,15 @@ body {
     float: right;
 }
 
+#progress {
+    display: block;
+    clear: both;
+    padding-top: 10px;
+}
+
 #cardSetIndex {
-    margin-top: 32%;
     display: block;
     float: right;
     height: 220px;
-    width: 220px;
+    width: 240px;
 }
