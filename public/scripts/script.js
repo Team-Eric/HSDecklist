@@ -74,7 +74,7 @@ wellMetApp.controller('deckController', ['$scope', '$http', '$routeParams', '$sc
                     card.dustCost = CardService.dustCost(card);
 
                     if (!(card.cardId in $scope.storage)) {
-                        if (card.cardSet == "Basic") {
+                        if (card.cardSet == "Basic" && card.howToGet != null && card.howToGet == "Unlocked at Level 1.") {
                             $scope.storage[card.cardId] = 2;
                         } else {
                             $scope.storage[card.cardId] = 0;
