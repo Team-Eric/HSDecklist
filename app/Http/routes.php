@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 Route::get('/api/card/{card}', function($cardID) {
-    return \App\Card::find($cardID)->get();
+    return \App\Card::find($cardID);
 });
 
 Route::get('/api/deck/{deck}', function($deck) {
