@@ -6,6 +6,7 @@
 * Use the +/- buttons to indicate the number of cards that you currently possess in the deck list.
 * The dust cost will change accordingly (some cards do not cost dust/may required expansion packs)
 * The optimal pack recommended will change according to which cards you currently possess.
+* The cards you have will automatically be saved in your browser storage between decks
 
 ## Technologies ##
 * Backend - PHP
